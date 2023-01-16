@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Dashboard</title>
+</head>
+<body>
+    <nav class ="navbar navbar-light bg-dark"style='font-family:"Times New Roman",Times, serif; font-size:200%'>
+      <div class="container-fluid">
+        <img src="https://logos-world.net/wp-content/uploads/2022/01/Nagarro-Symbol.png" style="width: 70px;" alt="logo">
+          <h1 class="text-light primary py-3" style='font-family:"Times New Roman",Times, serif; font-size:100%'><b>Result Managment System</b></h1>
+          <div class ="d-flex">
+           <a href="/teacher/logout"> <button type="button" class="btn btn-danger ">Logout</button></a>
+          </div>
+      </div>
+          
+         
+      </div>
+    </nav>
+
+   
+
+    <div class="container" style="margin-bottom: 10px;margin-top: 50px;">
+        <div class="row">
+            <div class="col-8 text-center " style="margin-left: 10px;font-family: 'Times New Roman', Times, serif;">
+                <h3 style="margin-left: 400px;">Students Record</h3>
+            </div>
+            <div class="col-2" style="margin-left: 150px;font-family: 'Times New Roman', Times, serif;">
+                <a href="/teacher/addstudent">
+                <button class="btn btn-outline-primary" type="submit">Add Student</button>
+                </a>
+            </div>
+            <% if(locals.messege){%>
+              <div class ="alert alert-danger"role="alert"><%=messege%></div><%}%>
+        </div>
+    </div>
+
+    <div class="container"style='font-family:"Times New Roman",Times, serif; font-size:100%'>
+        <table class="table table-bordered table-striped mt-3">
+          <thead>
+          <tr>
+            <th>Roll Nubmer</th>
+            <th>Name</th>
+            <th>D.O.B</th>
+            <th>Marks</th>
+            <th>Actions</th>
+            
+          </tr>
+          </thead>
+          <tbody>
+              <%
+                students.forEach(element=>{
+                    %>
+                    <tr>
+                        <td><span><%=element.rollnumber%></span></td>
+                        <td><span><%=element.name%></span></td>
+                        <td><span><%=element.dob%></span></td>
+                        <td><span><%=element.marks%></span></td>
+                        <td>
+                           <a href="/teacher/editstudent/<%=element.rollnumber%>"><button  class="btn btn-sm btn-warning">
+                              <i class="fa fa-edit"></i>Edit</button></a>
+
+                            <a href="/teacher/deletestudent/<%=element.rollnumber%>"><button  style="margin-left: 5px;" class="btn btn-sm btn-danger">
+                              <i class="fa fa-remove"></i>Delete</button></a>
+                        </td>
+                        
+                      </tr>
+                    <%
+                })
+                %>
+          
+          </tbody>
+        </table>
+      </div>
+
+     
+
+</body>
+</html>

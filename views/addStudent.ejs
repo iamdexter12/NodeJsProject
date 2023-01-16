@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Dashboard</title>
+</head>
+
+<body>
+	<nav class ="navbar navbar-light bg-dark"style='font-family:"Times New Roman",Times, serif; font-size:200%'>
+		<div class="container-fluid">
+		  <img src="https://logos-world.net/wp-content/uploads/2022/01/Nagarro-Symbol.png" style="width: 70px;" alt="logo">
+			<h1 class="text-light primary py-3" style='font-family:"Times New Roman",Times, serif; font-size:100%'><b>Result Managment System</b></h1>
+			<div class ="d-flex">
+				<a href="/teacher/dashboard" ><button type="button" class="btn btn-warning">Go Back</button></a>&nbsp;
+			 <a href="/teacher/login"> <button type="button" class="btn btn-danger ">Logout</button></a>
+			 
+			</div>
+		</div>
+			
+		   
+		</div>
+	  </nav>
+
+<main class="primary-background banner-background"
+		style="padding-bottom: 90px;padding-top: 15px;">
+	<div class="container">
+		
+		<div class="col-md-6 offset-md-3">
+			
+			<div class="card"style=" font-family: 'Times New Roman', Times, serif;font-size:100%">
+				<div class="card-header text-center "style=" font-family: 'Times New Roman', Times, serif;font-size:150%">
+					<span class="fa fa-user-plus fa-3x"></span><br> <b>Add Student </b>
+				</div>
+
+				<div class="card-body"style=" font-family: 'Times New Roman', Times, serif;">
+					<form action="/teacher/addstudent"  method="POST">
+						
+						<div class="form-group" style="margin-top: 5px;">
+							<label for="Email1"><b>Roll Number</b></label> 
+                            <input style="margin-top: 5px;" type="number"
+								class="form-control" 
+								 placeholder="Enter Roll number"
+								required  name='rollnumber'minlength="1" maxlength="2">
+						</div>
+						<div class="form-group" style="margin-top: 5px;">
+							<label for="Name"><b>Name</b></label> <input style="margin-top: 5px;" type="text"
+								class="form-control" id="Name"
+								placeholder="Enter Name" required="required" name='name'>
+						</div>
+						<div class="form-group"  style="margin-top: 5px;">
+							<label for="Password1"><b>Date of Birth</b></label>
+                             <input style="margin-top: 5px;" type="date"
+								class="form-control"
+								placeholder="dd-mm-yyyy" required name='dob'>
+						</div>
+						
+						<div class="form-group"  style="margin-top: 5px;">
+							<label for="Password1"><b>Marks</b></label> 
+                            <input style="margin-top: 5px;" type="number"
+								class="form-control"
+								placeholder="Enter Marks" required="required" name='marks'>
+						</div>
+                        <div style="margin-top: 10px; text-align: center;">
+                            <button id="button1" type="submit" class="btn btn-primary">Add</button>
+                            <button type="reset" class="btn btn-danger" style="margin-left: 6px;">Clear</button>
+							
+                        </div>
+						<% if(locals.messege){%>
+							<div class ="alert alert-danger"role="alert"><%=messege%></div><%}%>
+						
+
+
+
+					</form>
+
+				</div>
+
+
+			</div>
+
+
+
+		</div>
+	</div>
+	</main>
+</body>
